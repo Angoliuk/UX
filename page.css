@@ -1,0 +1,35 @@
+header {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+}
+
+body {
+  background-color: #FFFFFF;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.left-bar-with-buttons {
+  width: 9%;
+  background-color: #FF5C4A;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  margin-right: 9%;
+}
+
+.bell-and-settings-button {
+  display: flex;
+  justify-content: space-around;
+}
+
+.right-bar-with-profile {
+  background-color: #F4F8FB;
+  width: 29%;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+}

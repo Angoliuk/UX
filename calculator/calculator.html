@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="viewport" content="width=device-width" initial-scale="1.0" charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="calculator.css">
+  <link href="https://fonts.googleapis.com/css?family=Calistoga&display=swap" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="calculator.js"> -->
+  <title></title>
+</head>
+
+<body>
+  <script src="calculator.js"></script>
+
+
+  <div class="container row">
+
+    <div class="col-lg-3">
+
+      <p class="last-activities">last activities : </p>
+      <input class="input-last-activities1" id="input-last-activities1" disabled type="text" name="input">
+      <input class="input-last-activities2" id="input-last-activities2" disabled type="text" name="input">
+      <input class="input-last-activities3" id="input-last-activities3" disabled type="text" name="input">
+
+    </div>
+
+    <div class="col-lg-9 body-of-calculator">
+
+      <input class="input" id="input" type="text" placeholder="0" name="input">
+
+      <div class="buttons-block">
+
+        <div class="">
+
+          <button class="btn btn-secondary button-action" onclick="Deleting()" value="C" type="button" name="button">C</button>
+          <button class="btn btn-secondary button-action" onclick="Action(this.value)" value="%" type="button" name="button">%</button>
+          <button class="btn btn-secondary button-action" onclick="Action(this.value)" value="/" type="button" name="button">/</button>
+          <button class="btn btn-secondary button-action" onclick="Action(this.value)" value="*" type="button" name="button">*</button>
+
+        </div>
+
+        <div class="">
+
+          <button class="btn btn-light button-action" onclick="Action(this.value)" value="1" type="button" name="button">1</button>
+          <button class="btn btn-light button-action" onclick="Action(this.value)" value="2" type="button" name="button">2</button>
+          <button class="btn btn-light button-action" onclick="Action(this.value)" value="3" type="button" name="button">3</button>
+          <button class="btn btn-secondary button-action" onclick="Action(this.value)" value="+" type="button" name="button">+</button>
+
+        </div>
+
+        <div class="">
+
+          <button class="btn btn-light button-action" onclick="Action(this.value)" value="4" type="button" name="button">4</button>
+          <button class="btn btn-light button-action" onclick="Action(this.value)" value="5" type="button" name="button">5</button>
+          <button class="btn btn-light button-action" onclick="Action(this.value)" value="6" type="button" name="button">6</button>
+          <button class="btn btn-secondary button-action" onclick="Action(this.value)" value="-" type="button" name="button">-</button>
+
+        </div>
+
+        <div class="">
+
+          <button class="btn btn-light button-action" onclick="Action(this.value)" value="7" type="button" name="button">7</button>
+          <button class="btn btn-light button-action" onclick="Action(this.value)" value="8" type="button" name="button">8</button>
+          <button class="btn btn-light button-action" onclick="Action(this.value)" value="9" type="button" name="button">9</button>
+          <button type="button" class="btn btn-secondary button-action" onclick="Action(this.value)" value="." name="button">.</button>
+
+        </div>
+
+        <div class="">
+
+          <button type="button" class="btn btn-light button-action" onclick="Action(this.value)" value="0" name="button">0</button>
+          <button type="button" class="btn btn-light button-action" onclick="Action(this.value)" value="00" name="button">00</button>
+          <button class="btn btn-light button-action" onclick="Action(this.value)" value="0.0" type="button" name="button">0.0</button>
+          <button class="btn btn-warning button-action" onclick="Calculating()" value="=" type="button" name="button">=</button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</body>
+
+</html>

@@ -16,7 +16,7 @@
 
   <div class="container row">
 
-    <div class="col-lg-3">
+    <div class="col-lg-6">
 
       <p class="last-activities">last activities : </p>
       <input class="input-last-activities1" id="input-last-activities1" disabled type="text" name="input">
@@ -25,7 +25,7 @@
 
     </div>
 
-    <div class="col-lg-9 body-of-calculator">
+    <div class="col-lg-6 body-of-calculator">
 
       <input class="input" id="input" type="text" placeholder="0" name="input">
 
@@ -34,9 +34,9 @@
         <div class="">
 
           <button class="btn btn-secondary button-action" onclick="Deleting()" value="C" type="button" name="button">C</button>
-          <button class="btn btn-secondary button-action" onclick="Action(this.value)" value="%" type="button" name="button">%</button>
-          <button class="btn btn-secondary button-action" onclick="Action(this.value)" value="/" type="button" name="button">/</button>
           <button class="btn btn-secondary button-action" onclick="Action(this.value)" value="*" type="button" name="button">*</button>
+          <button class="btn btn-secondary button-action" onclick="Action(this.value)" value="/" type="button" name="button">/</button>
+          <button type="button" class="btn btn-warning button-action" onclick="OnOffFunc()" name="button">On/Off</button>
 
         </div>
 

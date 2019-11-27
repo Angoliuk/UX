@@ -31,7 +31,7 @@ function Calculating() {
 
   if (onCalc == false) {
 
-    alert("calculator is off,press 'on/off button'")
+    alert("calculator is off,press 'on/off' button")
 
   } else {
 

@@ -1,8 +1,7 @@
 .basket {
-  background-color: ;
   border: 10px solid black;
-  width: 310px;
-  height: 310px;
+  width: 330px;
+  height: 330px;
   margin: 0.5%;
   flex-wrap: wrap
 }

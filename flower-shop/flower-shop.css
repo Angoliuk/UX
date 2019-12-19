@@ -4,8 +4,8 @@ body {
 }
 
 .deliver-button {
-    width: 15%;
-    height: 13%;
+    width: 20%;
+    height: 20%;
     margin: 0px 15px;
 }
 
@@ -52,7 +52,7 @@ body {
 .color-of-flower-blue,
 .color-of-flower-white,
 .color-of-flower-pink {
-    padding: 3%;
+    padding: 5%;
     border: 5px solid rgb(236, 236, 236);
 }
 
@@ -84,23 +84,51 @@ header {
         height: 700px;
     }
 }
-@media(max-width:750px){
-    .carousel{
+
+@media(max-width:750px) {
+    .carousel {
         height: 500px;
     }
 }
+
 @media(max-width:600px) {
     .carousel {
         height: 400px;
     }
 }
+
 @media(max-width:500px) {
     .carousel {
         height: 350px;
     }
 }
-@media(max-width:400px) {
+
+@media(max-width:430px) {
     .carousel {
         height: 250px;
     }
+
+    .deliver-button {
+        font-size: 12px;
+    }
+}
+
+.busketHidden {
+    display: none;
+    position: absolute;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    padding: 2%;
+}
+
+.busket:hover .busketHidden {
+    display: block;
+    z-index: 1000;
+    left: 400px;
+}
+.number-of-product{
+    width: 7%;
+}
+.product-in-busket{
+    margin: 5%;
 }

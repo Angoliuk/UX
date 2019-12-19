@@ -22,14 +22,49 @@
         <h2 class="col-lg-4 name-of-site">FlowerDelivery</h2>
 
         <div class="col-lg-8 nav-links d-flex justify-content-around">
-            
+
             <a href="#tulip">Tulip</a>
             <a href="#poppy">Poppy</a>
             <a href="#daisy">Daisy</a>
             <a href="#rose">Rose</a>
-            <a href="#water-lily">Water Lily</a>
+            <a href="#waterlily">Water Lily</a>
             <a href="#iris">Iris</a>
             <a href="#peony">Peony</a>
+
+            <div class="busket" id="visibleBusket">
+
+                <p class="name-busket">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 49.284 43.875">
+                        <path id="Icon_awesome-shopping-cart" data-name="Icon awesome-shopping-cart"
+                            d="M45.187,25.821,49.232,8a2.056,2.056,0,0,0-2-2.512H13.622l-.784-3.84A2.054,2.054,0,0,0,10.826,0H2.053A2.055,2.055,0,0,0,0,2.057V3.428A2.055,2.055,0,0,0,2.053,5.484H8.033l6.011,29.43a4.793,4.793,0,1,0,5.736.734H37.718a4.789,4.789,0,1,0,5.442-.892l.472-2.08a2.056,2.056,0,0,0-2-2.512H18.662l-.56-2.742H43.184A2.054,2.054,0,0,0,45.187,25.821Z" />
+                    </svg>
+                </p>
+
+                <div class="busketHidden" id="busketHidden">
+
+                    <div class="empty-busket" id="emptyBusket">
+
+                        <p class="name-busket">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 49.284 43.875">
+                                <path id="Icon_awesome-shopping-cart" data-name="Icon awesome-shopping-cart"
+                                    d="M45.187,25.821,49.232,8a2.056,2.056,0,0,0-2-2.512H13.622l-.784-3.84A2.054,2.054,0,0,0,10.826,0H2.053A2.055,2.055,0,0,0,0,2.057V3.428A2.055,2.055,0,0,0,2.053,5.484H8.033l6.011,29.43a4.793,4.793,0,1,0,5.736.734H37.718a4.789,4.789,0,1,0,5.442-.892l.472-2.08a2.056,2.056,0,0,0-2-2.512H18.662l-.56-2.742H43.184A2.054,2.054,0,0,0,45.187,25.821Z" />
+                            </svg>
+                            Your busket is empty
+                        </p>
+
+                    </div>
+
+                    <div id="busket"></div>
+
+                    <div id="totalPrice"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        </div>
 
         </div>
 
@@ -53,7 +88,7 @@
 
                 <div class="col-lg-6">
 
-                    <img class="img-fluid" id="tulip" src="image/tylip-red.jpg" alt="tulip">
+                    <img class="img-fluid" id="tulip" src="image/tulip-red.jpg" alt="tulip">
 
                 </div>
 
@@ -61,23 +96,25 @@
 
                     <h2 class="text-about-flower col-lg-8">Tulip</h2>
                     <h4 class="text-about-flower col-lg-8">Description:</h4>
-                    <h5 class="text-about-flower col-lg-10">The flowers are usually large, showy and brightly colored, generally red, pink, yellow, or white (usually in warm
-                    colors).</h5>
+                    <h5 class="text-about-flower col-lg-10">The flowers are usually large, showy and brightly colored,
+                        generally red, pink, yellow, or white (usually in warm
+                        colors).</h5>
 
                     <div class="choose-color col-lg-8">
 
-                        <button onclick="document.getElementById('tylip').src = this.value" value="image/tylip-red.jpg"
+                        <button onclick="document.getElementById('tulip').src = this.value" value="image/tulip-red.jpg"
                             class="color-of-flower-red"></button>
 
-                        <button onclick="document.getElementById('tylip').src = this.value"
-                            value="image/tylip-purple.jpg" class="color-of-flower-purple"></button>
+                        <button onclick="document.getElementById('tulip').src = this.value"
+                            value="image/tulip-purple.jpg" class="color-of-flower-purple"></button>
 
-                        <button onclick="document.getElementById('tylip').src = this.value"
-                            value="image/tylip-yellow.jpg" class="color-of-flower-yellow"></button>
+                        <button onclick="document.getElementById('tulip').src = this.value"
+                            value="image/tulip-yellow.jpg" class="color-of-flower-yellow"></button>
 
                     </div>
 
-                    <button class="deliver-button">buy</button>
+                    <button class="deliver-button" onclick="buyFlower('tulip',tulip,'1.99');this.disabled = true"> buy
+                        for 1.99$ </button>
 
                 </div>
 
@@ -95,8 +132,9 @@
 
                     <h2 class="text-about-flower col-lg-8">Poppy</h2>
                     <h4 class="text-about-flower col-lg-8">Description:</h4>
-                    <h5 class="text-about-flower col-lg-10">A poppy is a flowering beautiful plant. Poppies are herbaceous plants,
-                    often grown for their colourful flowers.</h5>
+                    <h5 class="text-about-flower col-lg-10">A poppy is a flowering beautiful plant. Poppies are
+                        herbaceous plants,
+                        often grown for their colourful flowers.</h5>
 
                     <div class="choose-color col-lg-8">
 
@@ -108,7 +146,8 @@
 
                     </div>
 
-                    <button class="deliver-button">buy</button>
+                    <button class="deliver-button" onclick="buyFlower('poppy',poppy,'1.59');this.disabled = true">buy
+                        for 1.59$</button>
 
                 </div>
 
@@ -126,8 +165,9 @@
 
                     <h2 class="text-about-flower col-lg-8">Daisy</h2>
                     <h4 class="text-about-flower col-lg-8">Description:</h4>
-                    <h5 class="text-about-flower col-lg-10">A Daisy flower is composed of white petals and a yellow center, although the flower can sometimes have a pink or rose.
-                    color.</h5>
+                    <h5 class="text-about-flower col-lg-10">A Daisy flower is composed of white petals and a yellow
+                        center, although the flower can sometimes have a pink or rose.
+                        color.</h5>
 
                     <div class="choose-color col-lg-8">
 
@@ -139,7 +179,8 @@
 
                     </div>
 
-                    <button class="deliver-button">buy</button>
+                    <button class="deliver-button" onclick="buyFlower('daisy',daisy,'1.00');this.disabled = true">buy
+                        for 1.00$</button>
 
                 </div>
 
@@ -157,7 +198,8 @@
 
                     <h2 class="text-about-flower col-lg-8">Rose</h2>
                     <h4 class="text-about-flower col-lg-8">Description:</h4>
-                    <h5 class="text-about-flower col-lg-10">A rose is a woody perennial flowering plant of the genus Rosa, in the family Rosaceae, or the flower it bears.</h5>
+                    <h5 class="text-about-flower col-lg-10">A rose is a woody perennial flowering plant of the genus
+                        Rosa, in the family Rosaceae, or the flower it bears.</h5>
 
                     <div class="choose-color col-lg-8">
 
@@ -169,7 +211,8 @@
 
                     </div>
 
-                    <button class="deliver-button">buy</button>
+                    <button class="deliver-button" onclick="buyFlower('rose',rose,'2.0');this.disabled = true">buy for
+                        2.00$</button>
 
                 </div>
 
@@ -179,7 +222,7 @@
 
                 <div class="col-lg-6">
 
-                    <img class="img-fluid" id="water-lily" src="image/water-lily-white.jpg" alt="water-lily">
+                    <img class="img-fluid" id="waterlily" src="image/water-lily-white.jpg" alt="waterlily">
 
                 </div>
 
@@ -187,22 +230,25 @@
 
                     <h2 class="text-about-flower col-lg-8">Water Lily</h2>
                     <h4 class="text-about-flower col-lg-8">Description:</h4>
-                    <h5 class="text-about-flower col-lg-10">The fragrant water lily is an aquatic plant that is most easily recognized by its eye-catching.</h5>
+                    <h5 class="text-about-flower col-lg-10">The fragrant water lily is an aquatic plant that is most
+                        easily recognized by its eye-catching.</h5>
 
                     <div class="choose-color col-lg-8">
 
-                        <button onclick="document.getElementById('water-lily').src = this.value"
+                        <button onclick="document.getElementById('waterlily').src = this.value"
                             class="color-of-flower-pink waterlilybutton" value="image/water-lily-pink.jpg"></button>
 
-                        <button onclick="document.getElementById('water-lily').src = this.value"
+                        <button onclick="document.getElementById('waterlily').src = this.value"
                             class="color-of-flower-white waterlilybutton" value="image/water-lily-white.jpg"></button>
 
-                        <button onclick="document.getElementById('water-lily').src = this.value"
+                        <button onclick="document.getElementById('waterlily').src = this.value"
                             class="color-of-flower-yellow waterlilybutton" value="image/water-lily-yellow.jpg"></button>
 
                     </div>
 
-                    <button class="deliver-button">buy</button>
+                    <button class="deliver-button"
+                        onclick="buyFlower('water lily',waterlily,'3.59');this.disabled = true">buy for
+                        3.59$</button>
 
                 </div>
 
@@ -220,8 +266,9 @@
 
                     <h2 class="text-about-flower col-lg-8">Iris</h2>
                     <h4 class="text-about-flower col-lg-8">Description:</h4>
-                    <h5 class="text-about-flower col-lg-10">Iris is a genus of 260–300 species of flowering plants with showy flowers. It takes its name from the Greek word for a
-                    rainbow.</h5>
+                    <h5 class="text-about-flower col-lg-10">Iris is a genus of 260–300 species of flowering plants with
+                        showy flowers. It takes its name from the Greek word for a
+                        rainbow.</h5>
 
                     <div class="choose-color col-lg-8">
 
@@ -233,7 +280,8 @@
 
                     </div>
 
-                    <button class="deliver-button">buy</button>
+                    <button class="deliver-button" onclick="buyFlower('iris',iris,'0.89');this.disabled = true">buy for
+                        0.89$</button>
 
                 </div>
 
@@ -251,7 +299,8 @@
 
                     <h2 class="text-about-flower col-lg-8">Peony</h2>
                     <h4 class="text-about-flower col-lg-8">Description:</h4>
-                    <h5 class="text-about-flower col-lg-10">The traditional floral symbol of China, the state flower of Indiana.With their rounded bloom, peonies embody romance.</h5>
+                    <h5 class="text-about-flower col-lg-10">The traditional floral symbol of China, the state flower of
+                        Indiana.With their rounded bloom, peonies embody romance.</h5>
 
                     <div class="choose-color col-lg-8">
 
@@ -266,7 +315,8 @@
 
                     </div>
 
-                    <button class="deliver-button">buy</button>
+                    <button class="deliver-button" onclick="buyFlower('peony',peony,'1.89');this.disabled = true">buy
+                        for 1.89$</button>
 
                 </div>
 

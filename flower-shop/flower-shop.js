@@ -111,4 +111,30 @@
             return;
         }
 
+
+
+
+
+        let dbName = "CartDB";
+        let requestDB = window.indexedDB.open(dbName);
+
+        requestDB.onupgradeneeded = function () {
+            let db = requestDB.result;
+            let store = db.createObjectStore("product",{unique:false, autoIncrement:true , keyPath: "id"});
+            store.put({ 
+                nameOfProduct: name,
+                priceForOne: price,
+                numberOfProduct: numberOfProduct.value,
+
+            }); 
+
+        };
+
+        requestDB.onsuccess = function () {
+            alert("ok");
+        };
+
+        requestDB.onerror = function () {
+            alert("Error,something went wrong!");
+        };
     }

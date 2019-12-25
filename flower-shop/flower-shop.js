@@ -113,28 +113,53 @@
 
 
 
+        window.flowers.addToDB(name, price, numberOfProduct.value);
+    }
 
-
+    (function(w){
         let dbName = "CartDB";
         let requestDB = window.indexedDB.open(dbName);
-
+        let db = null;
+        
         requestDB.onupgradeneeded = function () {
-            let db = requestDB.result;
-            let store = db.createObjectStore("product",{unique:false, autoIncrement:true , keyPath: "id"});
-            store.put({ 
-                nameOfProduct: name,
-                priceForOne: price,
-                numberOfProduct: numberOfProduct.value,
-
-            }); 
-
+            console.log('I was called');
+            db = requestDB.result;
+            store = db.createObjectStore('product', { keyPath: 'nameOfProduct'});
         };
 
         requestDB.onsuccess = function () {
-            alert("ok");
+            db = requestDB.result;
         };
 
         requestDB.onerror = function () {
             alert("Error,something went wrong!");
         };
-    }
+
+        w.flowers = {
+            getStore: function() {
+                return db.transaction(["product"], "readwrite").objectStore('product');
+            },
+            addToDB: async function(name, price, numberOfProduct) {
+                store = this.getStore();
+                await store.put({
+                    nameOfProduct: name,
+                    priceForOne: +price,
+                    numberOfProduct: +numberOfProduct
+                })
+            },
+            removeItem: async function(productName) {
+                await this.getStore().delete(productName);
+            },
+            updateItem: async function(productName, value) {
+                let transaction = db.transaction(['product'], 'readwrite');
+                let store = transaction.objectStore('product');
+                let eObject = await store.get(productName);
+                eObject.onsuccess = async function() {
+                    e = eObject.result;
+                    e.numberOfProduct = +value;
+                    console.log(e);
+                    await store.put(e);
+                };
+            }
+        }
+    })(window)

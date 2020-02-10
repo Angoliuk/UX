@@ -14,17 +14,31 @@
     }
     setInterval(carousel, 3000);
 
+//check this
+    function createObjProd(name, price) {
+        let countProd = 1;
+        // if (document.querySelector(".numOfProd").value != null) {
+        //     countProd = document.querySelector(".numOfProd").value;
+        // }
+
+        let objOfProd = {
+            name: name,
+            price: price,
+            countProd: countProd,
+        }
+        return objOfProd;
+    }
 
     function createCartText() {
 
         let container = document.createElement("div");
-        container.id = "container";
+        container.id = "emptyBusket";
         let textTeg = document.createElement("p");
-        textTeg.id = "textTeg";
+        textTeg.id = "emptyBusketIcon";
         let cartImg = document.createElement("img");
         cartImg.src = "image/shopping-cart.png";
         textTeg.innerText = "Your busket is empty";
-        
+
         container.appendChild(cartImg);
         container.appendChild(textTeg);
         document.getElementById("busketHidden").appendChild(container);
@@ -44,7 +58,7 @@
             let price = element.dataset.price;
             let totalPrice = numOfProd * price;
             priceForAll += totalPrice;
-            
+
         });
 
         priceForAll = priceForAll.toFixed(2)
@@ -59,21 +73,21 @@
         let emptyBusket = document.getElementById("emptyBusket");
         let busket = document.getElementById("busket");
         let numberOfChild = busket.childElementCount;
+        let totalPriceForAll = priceForAll();
 
-        if (numberOfChild > -1) {
+        if (numberOfChild > 0) {
 
             priceForAll();
             let emptyCartText = document.querySelector("#emptyBusket");
 
             if (emptyCartText != null) {
                 emptyBusket.remove();
-            } else {
-                return 0
             }
         } else {
 
-            totalPriceForAll.remove();
-            createCartText()
+            while (totalPriceForAll.firstChild)
+            totalPriceForAll.removeChild(totalPriceForAll.firstChild);
+            createCartText();
         }
     }
 
@@ -88,15 +102,19 @@
 
             Array.from(allButtonsforBuy).forEach(element => {
 
-                let enable = productsInCart.indexOf(element.id);
-                if (enable != -1) {
+                let enable = false;
+                for (let i = 0; i < productsInCart.length; i++) {
+                    if (element.id == productsInCart[i].name) {
+                        enable = true;
+                    }
+                }
+
+                if (enable == true) {
                     element.innerText = "In cart";
                     element.classList.add("deliver-button-active");
                     name = element.id;
                     price = parseFloat(element.dataset.price);
                     createProdInCart(name, price);
-                } else {
-                    return 0
                 }
 
             });
@@ -105,6 +123,14 @@
 
     window.onload = loadCart;
 
+function getInf() {
+    let productsInCart = [];
+    productsInCartText = localStorage.getItem("ProductsInCart");
+    if (productsInCartText != null) {
+        productsInCart = JSON.parse(productsInCartText);
+    }
+    return productsInCart
+}
 
     function localStor(price) {
 
@@ -112,30 +138,25 @@
         let changeButton = document.getElementById(idProd);
 
 
-        function getInf() {
-            let productsInCart = [];
-            productsInCartText = localStorage.getItem("ProductsInCart");
-            if (productsInCartText != null) {
-                productsInCart = JSON.parse(productsInCartText);
+        let productsInCart = getInf();
+
+        let enable = -1;
+
+        for (let i = 0; i < productsInCart.length; i++) {
+            if (idProd == productsInCart[i].name) {
+                enable = i;
             }
-            return productsInCart
         }
 
-
-        let productsInCart = getInf();
-        let enable = productsInCart.indexOf(idProd);
-
-
-        if (enable == -1) {
-            productsInCart.push(idProd);
-            changeButton.innerText = "In cart";
-            changeButton.classList.add("deliver-button-active");
-        } else {
+        if (enable > -1) {
             productsInCart.splice(enable, 1);
             changeButton.innerText = `buy for ${price}$`;
             changeButton.classList.remove("deliver-button-active");
+        } else {
+            productsInCart.push(createObjProd(idProd, price));
+            changeButton.innerText = "In cart";
+            changeButton.classList.add("deliver-button-active");
         }
-
 
         localStorage.setItem("ProductsInCart", JSON.stringify(productsInCart));
 
@@ -155,6 +176,16 @@
         let numberOfProduct = document.createElement("input");
         numberOfProduct.disabled = true;
         numberOfProduct.value = 1;
+
+        let productsInCart = getInf();
+        for (let i = 0; i < productsInCart.length; i++) {
+            if (name == productsInCart[i].name) {
+                numberOfProduct.value = productsInCart[i].countProd;
+            }
+        }
+
+        localStorage.setItem("ProductsInCart", JSON.stringify(productsInCart))
+
         let totalPriceOfProduct = document.createElement("p");
 
         function calcPrice() {
@@ -164,11 +195,21 @@
             return totalPriceOfProduct
         }
 
+        function addCountProdToStorage(name) {
+            let productsInCart = getInf();
+            for (let i = 0; i < productsInCart.length; i++) {
+                if (name == productsInCart[i].name) {
+                    productsInCart[i].countProd = numberOfProduct.value;
+                }
+            }
+            localStorage.setItem("ProductsInCart", JSON.stringify(productsInCart))
+        }
 
         let addProduct = document.createElement("button");
         addProduct.innerText = "+";
         addProduct.onclick = function add() {
             numberOfProduct.value++;
+            addCountProdToStorage(name)
             calcPrice();
             priceForAll()
         };
@@ -179,10 +220,12 @@
         subtractProduct.onclick = function subtract() {
             if (numberOfProduct.value > 1) {
                 numberOfProduct.value--;
+                addCountProdToStorage(name)
                 calcPrice()
                 priceForAll();
             } else {
                 numberOfProduct.value = 1;
+                addCountProdToStorage(name)
             }
         };
 
@@ -216,12 +259,14 @@
         numberOfProductBlock.classList.add("col-lg-12");
         addProduct.classList.add("col-lg-2");
         numberOfProduct.classList.add("col-lg-8");
+        numberOfProduct.classList.add("numOfProd")
         subtractProduct.classList.add("col-lg-2");
 
 
         document.getElementById("busket").appendChild(allBusket);
         busketStart()
         priceForAll()
+        createObjProd(name, price);
     }
 
 
@@ -237,10 +282,8 @@
 
             let listOfBoughtProd = document.getElementsByClassName(name);
 
-            if (listOfBoughtProd.length > 0) {
                 listOfBoughtProd[0].remove()
-                priceForAll()
-            };
+                busketStart();
         } else {
             createProdInCart(name, price)
         }

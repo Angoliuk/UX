@@ -14,7 +14,7 @@
     }
     setInterval(carousel, 3000);
 
-//check this
+    //check this
     function createObjProd(name, price) {
         let countProd = 1;
         // if (document.querySelector(".numOfProd").value != null) {
@@ -86,7 +86,7 @@
         } else {
 
             while (totalPriceForAll.firstChild)
-            totalPriceForAll.removeChild(totalPriceForAll.firstChild);
+                totalPriceForAll.removeChild(totalPriceForAll.firstChild);
             createCartText();
         }
     }
@@ -123,14 +123,14 @@
 
     window.onload = loadCart;
 
-function getInf() {
-    let productsInCart = [];
-    productsInCartText = localStorage.getItem("ProductsInCart");
-    if (productsInCartText != null) {
-        productsInCart = JSON.parse(productsInCartText);
+    function getInf() {
+        let productsInCart = [];
+        productsInCartText = localStorage.getItem("ProductsInCart");
+        if (productsInCartText != null) {
+            productsInCart = JSON.parse(productsInCartText);
+        }
+        return productsInCart
     }
-    return productsInCart
-}
 
     function localStor(price) {
 
@@ -282,8 +282,8 @@ function getInf() {
 
             let listOfBoughtProd = document.getElementsByClassName(name);
 
-                listOfBoughtProd[0].remove()
-                busketStart();
+            listOfBoughtProd[0].remove()
+            busketStart();
         } else {
             createProdInCart(name, price)
         }

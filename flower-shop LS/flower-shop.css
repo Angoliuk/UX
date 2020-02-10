@@ -9,7 +9,8 @@ body {
     margin: 0px 15px;
     margin-top: 1%;
 }
-.deliver-button-active{
+
+.deliver-button-active {
     background-color: chartreuse;
 }
 
@@ -138,6 +139,7 @@ header {
 .product-in-busket {
     margin: 5%;
 }
+
 .productBlock {
-padding: 3%;
+    padding: 3%;
 }

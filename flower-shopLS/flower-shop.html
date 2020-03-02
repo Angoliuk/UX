@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="flower-shop.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>FlowerDelivery</title>
+
+</head>
+
+
+<body>
+
+
+    <header class="row">
+
+        <h2 class="col-lg-4 name-of-site">FlowerDelivery</h2>
+
+        <div class="col-lg-8 nav-links d-flex justify-content-around">
+
+            <a href="#tulip">Tulip</a>
+            <a href="#poppy">Poppy</a>
+            <a href="#daisy">Daisy</a>
+            <a href="#rose">Rose</a>
+            <a href="#waterlily">Water Lily</a>
+            <a href="#iris">Iris</a>
+            <a href="#peony">Peony</a>
+
+            <div class="busket" id="visibleBusket">
+
+                <p class="name-busket">
+                    <img src="image/shopping-cart.png" alt="cart-photo">
+                </p>
+
+                <div class="busketHidden" id="busketHidden">
+
+                    <div id="emptyBusket">
+
+                        <img src="image/shopping-cart.png" alt="cart-photo">
+                        <p id="emptyBusketIcon">Your busket is empty</p>
+
+                    </div>
+
+                    <div id="busket"></div>
+
+                    <div id="totalPrice"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        </div>
+
+        </div>
+
+    </header>
+
+    <main>
+
+        <h1 class="d-flex justify-content-center main-text">We growing flowers for you</h1>
+
+        <div class="carousel-block container-fluid">
+
+            <img class="carousel" onclick="carousel()" src="image/carousel-1.jpg" alt="photo">
+
+        </div>
+
+        <h2 class="type-2">Catalog</h2>
+
+        <div class="catalog row">
+
+            <div class="block-for-flower col-lg-12 row">
+
+                <div class="col-lg-6">
+
+                    <img class="img-fluid" id="tulip" src="image/tulip-red.jpg" alt="tulip">
+
+                </div>
+
+                <div class="block-about-flower row col-lg-6">
+
+                    <h2 class="text-about-flower col-lg-8">Tulip</h2>
+                    <h4 class="text-about-flower col-lg-8">Description:</h4>
+                    <h5 class="text-about-flower col-lg-10">The flowers are usually large, showy and brightly colored,
+                        generally red, pink, yellow, or white (usually in warm
+                        colors).</h5>
+
+                    <div class="choose-color col-lg-8">
+
+                        <button onclick="document.getElementById('tulip').src = this.value" value="image/tulip-red.jpg"
+                            class="color-of-flower-red"></button>
+
+                        <button onclick="document.getElementById('tulip').src = this.value"
+                            value="image/tulip-purple.jpg" class="color-of-flower-purple"></button>
+
+                        <button onclick="document.getElementById('tulip').src = this.value"
+                            value="image/tulip-yellow.jpg" class="color-of-flower-yellow"></button>
+
+                    </div>
+
+                    <button id="Tulip" class="deliver-button" data-price="1.99" onclick="buyFlower()"> buy
+                        for 1.99$ </button>
+
+                </div>
+
+            </div>
+
+            <div class="block-for-flower col-lg-12 row">
+
+                <div class="col-lg-6">
+
+                    <img class="img-fluid" id="poppy" src="image/poppy-red.jpg" alt="poppy">
+
+                </div>
+
+                <div class="block-about-flower row col-lg-6">
+
+                    <h2 class="text-about-flower col-lg-8">Poppy</h2>
+                    <h4 class="text-about-flower col-lg-8">Description:</h4>
+                    <h5 class="text-about-flower col-lg-10">A poppy is a flowering beautiful plant. Poppies are
+                        herbaceous plants,
+                        often grown for their colourful flowers.</h5>
+
+                    <div class="choose-color col-lg-8">
+
+                        <button onclick="document.getElementById('poppy').src = this.value" value="image/poppy-pink.jpg"
+                            class="color-of-flower-pink"></button>
+
+                        <button onclick="document.getElementById('poppy').src = this.value" value="image/poppy-red.jpg"
+                            class="color-of-flower-red"></button>
+
+                    </div>
+
+                    <button id="Poppy" class="deliver-button" data-price="1.59" onclick="buyFlower()">buy
+                        for 1.59$</button>
+
+                </div>
+
+            </div>
+
+            <div class="block-for-flower col-lg-12 row">
+
+                <div class="col-lg-6">
+
+                    <img class="img-fluid" id="daisy" src="image/daisy-white.jpg" alt="daisy">
+
+                </div>
+
+                <div class="block-about-flower row col-lg-6">
+
+                    <h2 class="text-about-flower col-lg-8">Daisy</h2>
+                    <h4 class="text-about-flower col-lg-8">Description:</h4>
+                    <h5 class="text-about-flower col-lg-10">A Daisy flower is composed of white petals and a yellow
+                        center, although the flower can sometimes have a pink or rose.
+                        color.</h5>
+
+                    <div class="choose-color col-lg-8">
+
+                        <button onclick="document.getElementById('daisy').src = this.value"
+                            value="image/daisy-white.jpg" class="color-of-flower-white"></button>
+
+                        <button onclick="document.getElementById('daisy').src = this.value" value="image/daisy-pink.jpg"
+                            class="color-of-flower-pink"></button>
+
+                    </div>
+
+                    <button id="Daisy" class="deliver-button" data-price="1.00" onclick="buyFlower()">buy
+                        for 1.00$</button>
+
+                </div>
+
+            </div>
+
+            <div class="block-for-flower col-lg-12 row">
+
+                <div class="col-lg-6">
+
+                    <img class="img-fluid" id="rose" src="image/rose-red.jpg" alt="rose">
+
+                </div>
+
+                <div class="block-about-flower row col-lg-6">
+
+                    <h2 class="text-about-flower col-lg-8">Rose</h2>
+                    <h4 class="text-about-flower col-lg-8">Description:</h4>
+                    <h5 class="text-about-flower col-lg-10">A rose is a woody perennial flowering plant of the genus
+                        Rosa, in the family Rosaceae, or the flower it bears.</h5>
+
+                    <div class="choose-color col-lg-8">
+
+                        <button onclick="document.getElementById('rose').src = this.value" value="image/rose-white.jpg"
+                            class="color-of-flower-white"></button>
+
+                        <button onclick="document.getElementById('rose').src = this.value" value="image/rose-red.jpg"
+                            class="color-of-flower-red"></button>
+
+                    </div>
+
+                    <button id="Rose" class="deliver-button" data-price="2.00" onclick="buyFlower(2.00)">buy for
+                        2.00$</button>
+
+                </div>
+
+            </div>
+
+            <div class="block-for-flower col-lg-12 row">
+
+                <div class="col-lg-6">
+
+                    <img class="img-fluid" id="waterlily" src="image/water-lily-white.jpg" alt="waterlily">
+
+                </div>
+
+                <div class="block-about-flower row col-lg-6">
+
+                    <h2 class="text-about-flower col-lg-8">Water Lily</h2>
+                    <h4 class="text-about-flower col-lg-8">Description:</h4>
+                    <h5 class="text-about-flower col-lg-10">The fragrant water lily is an aquatic plant that is most
+                        easily recognized by its eye-catching.</h5>
+
+                    <div class="choose-color col-lg-8">
+
+                        <button onclick="document.getElementById('waterlily').src = this.value"
+                            class="color-of-flower-pink waterlilybutton" value="image/water-lily-pink.jpg"></button>
+
+                        <button onclick="document.getElementById('waterlily').src = this.value"
+                            class="color-of-flower-white waterlilybutton" value="image/water-lily-white.jpg"></button>
+
+                        <button onclick="document.getElementById('waterlily').src = this.value"
+                            class="color-of-flower-yellow waterlilybutton" value="image/water-lily-yellow.jpg"></button>
+
+                    </div>
+
+                    <button id="WaterLily" class="deliver-button" data-price="3.59" onclick="buyFlower()">buy for
+                        3.59$</button>
+
+                </div>
+
+            </div>
+
+            <div class="block-for-flower col-lg-12 row">
+
+                <div class="col-lg-6">
+
+                    <img class="img-fluid" id="iris" src="image/iris-blue.jpg" alt="iris">
+
+                </div>
+
+                <div class="block-about-flower row col-lg-6">
+
+                    <h2 class="text-about-flower col-lg-8">Iris</h2>
+                    <h4 class="text-about-flower col-lg-8">Description:</h4>
+                    <h5 class="text-about-flower col-lg-10">Iris is a genus of 260–300 species of flowering plants with
+                        showy flowers. It takes its name from the Greek word for a
+                        rainbow.</h5>
+
+                    <div class="choose-color col-lg-8">
+
+                        <button onclick="document.getElementById('iris').src = this.value" value="image/iris-blue.jpg"
+                            class="color-of-flower-blue"></button>
+
+                        <button onclick="document.getElementById('iris').src = this.value" value="image/iris-purple.jpg"
+                            class="color-of-flower-purple"></button>
+
+                    </div>
+
+                    <button id="Iris" class="deliver-button" data-price="0.89" onclick="buyFlower()">buy for
+                        0.89$</button>
+
+                </div>
+
+            </div>
+
+            <div class="block-for-flower col-lg-12 row">
+
+                <div class="col-lg-6">
+
+                    <img class="img-fluid" id="peony" src="image/peony-white.jpg" alt="peony">
+
+                </div>
+
+                <div class="block-about-flower row col-lg-6">
+
+                    <h2 class="text-about-flower col-lg-8">Peony</h2>
+                    <h4 class="text-about-flower col-lg-8">Description:</h4>
+                    <h5 class="text-about-flower col-lg-10">The traditional floral symbol of China, the state flower of
+                        Indiana.With their rounded bloom, peonies embody romance.</h5>
+
+                    <div class="choose-color col-lg-8">
+
+                        <button onclick="document.getElementById('peony').src = this.value"
+                            value="image/peony-orange.jpg" class="color-of-flower-orange"></button>
+
+                        <button onclick="document.getElementById('peony').src = this.value" value="image/peony-pink.jpg"
+                            class="color-of-flower-pink"></button>
+
+                        <button onclick="document.getElementById('peony').src = this.value"
+                            value="image/peony-white.jpg" class="color-of-flower-white"></button>
+
+                    </div>
+
+                    <button id="Peony" class="deliver-button" data-price="1.89" onclick="buyFlower()">buy
+                        for 1.89$</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+    </footer>
+
+    <script src="flower-shop.js">
+    </script>
+
+
+</body>
+
+
+</html>

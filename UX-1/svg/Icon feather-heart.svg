@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 <svg xmlns="http://www.w3.org/2000/svg" width="11.504" height="10.141" viewBox="0 0 11.504 10.141">
   <path id="Icon_feather-heart" data-name="Icon feather-heart" d="M11.668,5.305a2.6,2.6,0,0,0-3.769,0l-.513.531-.513-.531a2.6,2.6,0,0,0-3.769,0,2.827,2.827,0,0,0,0,3.9l.513.531,3.769,3.9,3.769-3.9.513-.531a2.827,2.827,0,0,0,0-3.9Z" transform="translate(-1.634 -3.997)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
 </svg>
+=======
+<svg xmlns="http://www.w3.org/2000/svg" width="11.504" height="10.141" viewBox="0 0 11.504 10.141">
+  <path id="Icon_feather-heart" data-name="Icon feather-heart" d="M11.668,5.305a2.6,2.6,0,0,0-3.769,0l-.513.531-.513-.531a2.6,2.6,0,0,0-3.769,0,2.827,2.827,0,0,0,0,3.9l.513.531,3.769,3.9,3.769-3.9.513-.531a2.827,2.827,0,0,0,0-3.9Z" transform="translate(-1.634 -3.997)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+</svg>
+>>>>>>> update

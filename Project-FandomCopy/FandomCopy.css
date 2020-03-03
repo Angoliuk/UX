@@ -1,0 +1,80 @@
+header {
+  background-color: #59a3b1;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  height: 12%
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+}
+
+a {
+  text-decoration: none;
+}
+
+.part-of-navigation {
+  color: black;
+  font-weight: 900;
+  font-size: 18px
+}
+
+main {
+  background-color: #eef0ee;
+  opacity: 0.95;
+  padding: 7% 20% 0% 20%;
+}
+
+.Fandom-sign {
+  padding: 20px;
+  width: 10%;
+}
+
+.Fandom-image {
+  width: 3%;
+  height: 3%;
+  padding-top: 1%
+}
+
+.Fandom {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.links {
+  list-style-type: none;
+}
+
+.part-of-list {
+  font-size: 18px;
+  font-weight: 400
+}
+
+.name-of-link {
+  font-size: 19px;
+  font-weight: 600;
+  margin-top: 0;
+}
+
+.Copyright {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+footer {
+  background-color: #59a3b1
+}
+
+.main-text {
+  display: flex;
+  justify-content: space-around;
+}

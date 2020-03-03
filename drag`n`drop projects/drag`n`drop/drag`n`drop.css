@@ -1,7 +1,16 @@
+<<<<<<< HEAD
 .basket {
   border: 10px solid black;
   width: 330px;
   height: 330px;
   margin: 0.5%;
   flex-wrap: wrap
+=======
+.basket {
+  border: 10px solid black;
+  width: 330px;
+  height: 330px;
+  margin: 0.5%;
+  flex-wrap: wrap
+>>>>>>> smth
 }

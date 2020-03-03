@@ -1,0 +1,105 @@
+.N-long-information {
+  width: 50%;
+}
+
+.N-short-information {
+  margin-left: 4%;
+  border: 1px solid pink;
+  padding: 5px;
+  height: 100%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  background-color: #eef0ee;
+  opacity: 0.87;
+  margin: 0% 20% 0% 20%;
+  width: 60%;
+  padding: 10% 0% 0% 0%
+}
+
+body {
+  background-image: url(https://vignette3.wikia.nocookie.net/madeinabyss/images/5/50/Wiki-background/revision/latest?cb=20170621152447);
+  font-family: 'Quicksand', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.line-info {
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  outline: 1px solid pink;
+}
+
+.line-value, .line-name {
+  display: flex;
+  justify-content: center;
+  width: 40%;
+  border: 1px solid pink;
+}
+
+.Photo-N {
+  padding: 5px;
+  border: 1px solid pink;
+}
+
+header {
+  background-color: #59a3b1;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  height: 12%
+}
+
+a {
+  text-decoration: none;
+}
+
+.part-of-navigation {
+  color: black;
+  font-weight: 900;
+  font-size: 18px
+}
+
+.Fandom-image {
+  width: 3%;
+  height: 3%;
+  padding-top: 1%
+}
+
+.Fandom {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.links {
+  list-style-type: none;
+}
+
+.part-of-list {
+  font-size: 18px;
+  font-weight: 400
+}
+
+.name-of-link {
+  font-size: 19px;
+  font-weight: 600;
+  margin-top: 0;
+}
+
+.Copyright {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+footer {
+  background-color: #59a3b1
+}

@@ -43,7 +43,9 @@ class App extends React.Component {
                 <Header/>  
                 
                 <Switch>
-                    < Route path = "/photo/:id"><PhotoInf/></Route>
+                    < Route path = "/photo/:id" render={({match}) => {
+                        return <PhotoInf id={match.params.id}/>
+                    }}></Route>
                      
                     < Route path = "/home" > <Home images={this.state.images} /> </Route>
                      

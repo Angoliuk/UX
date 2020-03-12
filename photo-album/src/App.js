@@ -1,9 +1,25 @@
 import React from 'react';
 import './App.css';
 import Header from './Header';
-import {Route, BrowserRouter, NavLink} from 'react-router-dom';
+import {Route, BrowserRouter, NavLink, Switch} from 'react-router-dom';
+import context from './context';
+import PhotoInf from './photoinfo'
 
 const uri = "https://picsum.photos/v2/list";
+
+function Home({images}){
+    return (images.map(item =>
+                <NavLink  key={item.id} to={`/photo/${item.id}`}>
+                    <img id={item.id}
+                        key={item.id}
+                        alt="something"
+                        className="part-of-photo-list"
+                        src={item.download_url}
+                        width="300"
+                        height="200"
+                    />
+                </NavLink>))
+}
 
 class App extends React.Component {
     constructor(props) {
@@ -18,45 +34,22 @@ class App extends React.Component {
             .then(result => result.json())
             .then(jsonImages => this.setState({images: jsonImages}))
     }
-
-
-    returnAllPhoto(){
-        return this.state.images.map(item => 
-                    <NavLink key={item.id} to={`/photo/${item.id}`}>
-                    {console.log(item)}
-                    <img id={item.id}
-                        key={item.id}
-                        alt="something"
-                        className="part-of-photo-list"
-                        src={item.download_url}
-                        width="300"
-                        height="200"
-                    />
-                    {console.log("End")}
-                    </NavLink>)
-    }
     
-    // PhotoInf(){
-    //     let item = document.querySelector(".part-of-photo-list")
-    //     return <div>
-    //     <img id={item.id}
-    //          key={item.id}
-    //          alt="something"
-    //          className="part-of-photo-list"
-    //          src={item.download_url}
-    //          width="300"
-    //          height="200" />
-    //     <p>{item.author}</p>
-    //     </div>
-    // }
 
     render() {
         return (
+            <context.Provider value={this.state}>
             <BrowserRouter>
-                <Header/> 
-                <Route path="/home" Component={this.returnAllPhoto()}/>   
-                {/* <Route path="/photo" Component={this.PhotoInf()}/> */}
+                <Header/>  
+                
+                <Switch>
+                    < Route path = "/photo/:id"><PhotoInf/></Route>
+                     
+                    < Route path = "/home" > <Home images={this.state.images} /> </Route>
+                     
+                 </Switch>
             </BrowserRouter>
+            </context.Provider>
         )}}
 
 export default App;

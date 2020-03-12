@@ -4,10 +4,10 @@ function Header() {
     < nav className = "header navbar" >
         <h1 > Your albums </h1>
             <ul className = "nav justify-content-end" >
-            <li className = "nav-item" ><a className = "nav-link" href = "#"> Home </a> </li> 
-            <li className = "nav-item" ><a className = "nav-link" href = "#"> All albums </a> </li>
-            <li className = "nav-item" ><a className = "nav-link" href = "#"> Add album </a> </li> 
-            <li className = "nav-item" ><a className = "nav-link" href = "#"> About </a> </li> 
+            <li className = "nav-item"><a className = "nav-link" href = "/home"> Home </a> </li> 
+            <li className = "nav-item"><a className = "nav-link" href = "https://www.google.com"> All albums </a> </li>
+            <li className = "nav-item"><a className = "nav-link" href = "https://www.google.com"> Add album </a> </li> 
+            <li className = "nav-item"><a className = "nav-link" href = "https://www.google.com"> About </a> </li> 
         </ul>
         
     </nav>

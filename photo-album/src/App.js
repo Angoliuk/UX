@@ -1,59 +1,61 @@
 import React from 'react';
 import './App.css';
 import Header from './Header';
-const photos = [{
-    id : 1,
-    src: "https://picsum.photos/seed/picsum/250/350"
-  },
-  {
-    id : 2,
-    src: "https://picsum.photos/250/350/?blur=3"
-  },
-  {
-    id : 3,
-    src: "https://picsum.photos/seed/picsum/250/350"
-  },
-  {
-    id : 4,
-    src: "https://picsum.photos/250/350?grayscale"
-  },
-  {
-    id : 5,
-    src: "https://picsum.photos/250/350/?blur=1.5"
-  },
-  {
-    id : 6,
-    src: "https://picsum.photos/id/870/250/350?grayscale&blur=2"
-  },
-  {id: 7,
-    src: "https://picsum.photos/seed/picsum/250/350"
-  }, {
-    id: 8,
-    src: "https://picsum.photos/250/350/?blur"
-  }, {
-    id: 9,
-    src: "https://picsum.photos/seed/picsum/250/350"
-  }, {
-    id: 10,
-    src: "https://picsum.photos/250/350?grayscale"
-  }, {
-    id: 11,
-    src: "https://picsum.photos/250/350/?blur=2"
-  }, {
-    id: 12,
-    src: "https://picsum.photos/id/870/250/350?grayscale&blur=2"
-  },
-];
+import {Route, BrowserRouter, NavLink} from 'react-router-dom';
 
-function App() {
-  return (
-    <div>
-      <Header /> 
-      {photos.map(item => {
-       return <img key={item.id} className="part-of-photo-list" src={item.src} id={item.id} />
-      })}
-    </div>
-  );
-}
+const uri = "https://picsum.photos/v2/list";
+
+class App extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+          images:[]
+        };
+    }
+
+    componentDidMount() {
+        fetch(uri)
+            .then(result => result.json())
+            .then(jsonImages => this.setState({images: jsonImages}))
+    }
+
+
+    returnAllPhoto(){
+        return this.state.images.map(item => 
+                    <NavLink key={item.id} to={`/photo/${item.id}`}>
+                    {console.log(item)}
+                    <img id={item.id}
+                        key={item.id}
+                        alt="something"
+                        className="part-of-photo-list"
+                        src={item.download_url}
+                        width="300"
+                        height="200"
+                    />
+                    {console.log("End")}
+                    </NavLink>)
+    }
+    // PhotoInf(){
+    //     let item = document.querySelector(".part-of-photo-list")
+    //     return <div>
+    //     <img id={item.id}
+    //          key={item.id}
+    //          alt="something"
+    //          className="part-of-photo-list"
+    //          src={item.download_url}
+    //          width="300"
+    //          height="200" />
+    //     <p>{item.author}</p>
+    //     </div>
+    // }
+
+    render() {
+        return (
+            <BrowserRouter>
+                <Header/> 
+                <Route path="/home" Component={this.returnAllPhoto()}/>   
+                {/* <Route path="/photo" Component={this.PhotoInf()}/> */}
+            </BrowserRouter>
+        )}}
 
 export default App;

@@ -35,6 +35,7 @@ class App extends React.Component {
                     {console.log("End")}
                     </NavLink>)
     }
+    
     // PhotoInf(){
     //     let item = document.querySelector(".part-of-photo-list")
     //     return <div>
